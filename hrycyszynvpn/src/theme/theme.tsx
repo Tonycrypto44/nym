@@ -1,13 +1,12 @@
-import { PaletteMode } from '@mui/material'
+import { PaletteMode } from '@mui/material';
 import {
   PaletteOptions,
   NymPalette,
-  NymWalletPalette,
+  NymMixnetPalette,
   ThemeOptions,
   createTheme,
   NymPaletteVariant,
-} from '@mui/material/styles'
-import { number } from 'yup'
+} from '@mui/material/styles';
 
 //-----------------------------------------------------------------------------------------------
 // Nym palette type definitions
@@ -30,7 +29,7 @@ const nymPalette: NymPalette = {
     light: '#F2F2F2',
     dark: '#121726',
   },
-}
+};
 
 const darkMode: NymPaletteVariant = {
   mode: 'dark',
@@ -44,7 +43,7 @@ const darkMode: NymPaletteVariant = {
   topNav: {
     background: '#111826',
   },
-}
+};
 
 const lightMode: NymPaletteVariant = {
   mode: 'light',
@@ -58,17 +57,17 @@ const lightMode: NymPaletteVariant = {
   topNav: {
     background: '#111826',
   },
-}
+};
 
 /**
- * Nym palette specific to the Nym Wallet
+ * Nym palette specific to the Nym Mixnode
  *
  * IMPORTANT: do not export this constant, always use the MUI `useTheme` hook to get the correct
  * colours for dark/light mode.
  */
-const nymWalletPalette = (variant: NymPaletteVariant): NymWalletPalette => ({
-  nymWallet: {},
-})
+const nymMixnetPalette = (variant: NymPaletteVariant): NymMixnetPalette => ({
+  nymMixnet: {},
+});
 
 //-----------------------------------------------------------------------------------------------
 // Nym palettes for light and dark mode
@@ -95,7 +94,7 @@ const variantToMUIPalette = (variant: NymPaletteVariant): PaletteOptions => ({
     default: variant.background.main,
     paper: variant.background.paper,
   },
-})
+});
 
 /**
  * Returns the Network Explorer palette for light mode.
@@ -103,10 +102,10 @@ const variantToMUIPalette = (variant: NymPaletteVariant): PaletteOptions => ({
 const createLightModePalette = (): PaletteOptions => ({
   nym: {
     ...nymPalette,
-    ...nymWalletPalette(lightMode),
+    ...nymMixnetPalette(lightMode),
   },
   ...variantToMUIPalette(lightMode),
-})
+});
 
 /**
  * Returns the Network Explorer palette for dark mode.
@@ -114,10 +113,10 @@ const createLightModePalette = (): PaletteOptions => ({
 const createDarkModePalette = (): PaletteOptions => ({
   nym: {
     ...nymPalette,
-    ...nymWalletPalette(darkMode),
+    ...nymMixnetPalette(darkMode),
   },
   ...variantToMUIPalette(darkMode),
-})
+});
 
 /**
  * IMPORANT: if you need to get the default MUI theme, use the following
@@ -135,7 +134,7 @@ const createDarkModePalette = (): PaletteOptions => ({
  *     },
  *     nym: {
  *       ...nymPalette,
- *       ...nymWalletPalette,
+ *       ...nymMixnetPalette,
  *     },
  *   };
  */
@@ -158,7 +157,7 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
       mode,
       ...(mode === 'light' ? createLightModePalette() : createDarkModePalette()),
     },
-  })
+  });
 
   // then customise theme and components
   return {
@@ -218,5 +217,5 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
       },
     },
     palette,
-  }
-}
+  };
+};

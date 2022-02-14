@@ -1,4 +1,4 @@
-import { TransactionDetails } from "./transactiondetails";
+import { TransactionDetails } from './transactiondetails';
 
 export interface TauriTxResult {
   block_height: bigint;

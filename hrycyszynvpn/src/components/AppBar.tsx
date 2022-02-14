@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
-import { AppBar as MuiAppBar, Divider, Grid, IconButton, Toolbar, Typography, useMediaQuery } from '@mui/material'
-import { Box } from '@mui/system'
-import { Logout } from '@mui/icons-material'
-import { ClientContext } from '../context/main'
-import { CopyToClipboard, NetworkSelector } from '.'
-import { Node as NodeIcon } from '../svg-icons/node'
+import React, { useContext } from 'react';
+import { AppBar as MuiAppBar, Divider, Grid, IconButton, Toolbar, Typography, useMediaQuery } from '@mui/material';
+import { Box } from '@mui/system';
+import { Logout } from '@mui/icons-material';
+import { ClientContext } from '../context/main';
+import { CopyToClipboard, NetworkSelector } from '.';
+import { Node as NodeIcon } from '../svg-icons/node';
 
 export const AppBar = () => {
-  const { userBalance, clientDetails, showSettings, logOut, handleShowSettings } = useContext(ClientContext)
-  const matches = useMediaQuery('(min-width: 900px)')
+  const { userBalance, clientDetails, showSettings, logOut, handleShowSettings } = useContext(ClientContext);
+  const matches = useMediaQuery('(min-width: 900px)');
 
   return (
     <MuiAppBar position="sticky" sx={{ boxShadow: 'none', bgcolor: 'nym.background.light' }}>
@@ -53,23 +53,21 @@ export const AppBar = () => {
         </Grid>
       </Toolbar>
     </MuiAppBar>
-  )
-}
+  );
+};
 
 const AppBarItem: React.FC<{
-  primaryText: string
-  secondaryText?: string
-  Action?: React.ReactNode
-}> = ({ primaryText, secondaryText = '', Action }) => {
-  return (
-    <Box sx={{ p: 1, mr: 1 }}>
-      <Typography variant="body2" component="span" sx={{ color: 'grey.600' }}>
-        {primaryText}:
-      </Typography>{' '}
-      <Typography variant="body2" component="span" color="nym.background.dark" sx={{ mr: 1 }}>
-        {secondaryText}
-      </Typography>
-      {Action}
-    </Box>
-  )
-}
+  primaryText: string;
+  secondaryText?: string;
+  Action?: React.ReactNode;
+}> = ({ primaryText, secondaryText = '', Action }) => (
+  <Box sx={{ p: 1, mr: 1 }}>
+    <Typography variant="body2" component="span" sx={{ color: 'grey.600' }}>
+      {primaryText}:
+    </Typography>{' '}
+    <Typography variant="body2" component="span" color="nym.background.dark" sx={{ mr: 1 }}>
+      {secondaryText}
+    </Typography>
+    {Action}
+  </Box>
+);

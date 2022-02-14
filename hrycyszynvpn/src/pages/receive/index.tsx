@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
-import QRCode from 'qrcode.react'
-import { Alert, Box, Stack, Typography } from '@mui/material'
-import { CopyToClipboard, NymCard } from '../../components'
-import { Layout } from '../../layouts'
-import { ClientContext } from '../../context/main'
-import { ArrowBack } from '@mui/icons-material'
+import React, { useContext } from 'react';
+import QRCode from 'qrcode.react';
+import { Alert, Box, Stack, Typography } from '@mui/material';
+import { ArrowBack } from '@mui/icons-material';
+import { CopyToClipboard, NymCard } from '../../components';
+import { Layout } from '../../layouts';
+import { ClientContext } from '../../context/main';
 
 export const Receive = () => {
-  const { clientDetails, currency } = useContext(ClientContext)
+  const { clientDetails, currency } = useContext(ClientContext);
 
   return (
     <Layout>
@@ -35,5 +35,5 @@ export const Receive = () => {
         </Stack>
       </NymCard>
     </Layout>
-  )
-}
+  );
+};

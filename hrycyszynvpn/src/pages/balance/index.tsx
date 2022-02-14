@@ -1,17 +1,17 @@
-import React, { useContext, useEffect } from 'react'
-import { Alert, Button, Grid, Link, Typography } from '@mui/material'
-import { AccountBalanceWalletOutlined, OpenInNew } from '@mui/icons-material'
-import { NymCard } from '../../components'
-import { Layout } from '../../layouts'
+import React, { useContext, useEffect } from 'react';
+import { Alert, Button, Grid, Link, Typography } from '@mui/material';
+import { AccountBalanceWalletOutlined, OpenInNew } from '@mui/icons-material';
+import { NymCard } from '../../components';
+import { Layout } from '../../layouts';
 
-import { ClientContext, urls } from '../../context/main'
+import { ClientContext, urls } from '../../context/main';
 
 export const Balance = () => {
-  const { userBalance, clientDetails, network } = useContext(ClientContext)
+  const { userBalance, clientDetails, network } = useContext(ClientContext);
 
   useEffect(() => {
-    userBalance.fetchBalance()
-  }, [])
+    userBalance.fetchBalance();
+  }, []);
 
   return (
     <Layout>
@@ -46,5 +46,5 @@ export const Balance = () => {
         </Grid>
       </NymCard>
     </Layout>
-  )
-}
+  );
+};

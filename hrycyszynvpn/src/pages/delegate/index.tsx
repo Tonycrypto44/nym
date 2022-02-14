@@ -1,20 +1,20 @@
-import React, { useContext, useState } from 'react'
-import { Alert, AlertTitle, Box, Button, Link, Typography } from '@mui/material'
-import { DelegateForm } from './DelegateForm'
-import { Layout } from '../../layouts'
-import { NymCard } from '../../components'
-import { EnumRequestStatus, RequestStatus } from '../../components/RequestStatus'
-import { SuccessView } from './SuccessView'
-import { Delegate as DelegateIcon } from '../../svg-icons'
-import { urls, ClientContext } from '../../context/main'
+import React, { useContext, useState } from 'react';
+import { Alert, AlertTitle, Box, Button, Link, Typography } from '@mui/material';
+import { DelegateForm } from './DelegateForm';
+import { Layout } from '../../layouts';
+import { NymCard } from '../../components';
+import { EnumRequestStatus, RequestStatus } from '../../components/RequestStatus';
+import { SuccessView } from './SuccessView';
+import { Delegate as DelegateIcon } from '../../svg-icons';
+import { urls, ClientContext } from '../../context/main';
 
 export const Delegate = () => {
-  const [status, setStatus] = useState<EnumRequestStatus>(EnumRequestStatus.initial)
-  const [error, setError] = useState<string>()
-  const [successDetails, setSuccessDetails] = useState<{ amount: string; address: string }>()
+  const [status, setStatus] = useState<EnumRequestStatus>(EnumRequestStatus.initial);
+  const [error, setError] = useState<string>();
+  const [successDetails, setSuccessDetails] = useState<{ amount: string; address: string }>();
 
-  const {network} = useContext(ClientContext)
-  
+  const { network } = useContext(ClientContext);
+
   return (
     <Layout>
       <>
@@ -34,12 +34,12 @@ export const Delegate = () => {
             {status === EnumRequestStatus.initial && (
               <DelegateForm
                 onError={(message?: string) => {
-                  setStatus(EnumRequestStatus.error)
-                  setError(message)
+                  setStatus(EnumRequestStatus.error);
+                  setError(message);
                 }}
                 onSuccess={(details) => {
-                  setStatus(EnumRequestStatus.success)
-                  setSuccessDetails(details)
+                  setStatus(EnumRequestStatus.success);
+                  setSuccessDetails(details);
                 }}
               />
             )}
@@ -70,7 +70,7 @@ export const Delegate = () => {
                   <Button
                     data-testid="finish-button"
                     onClick={() => {
-                      setStatus(EnumRequestStatus.initial)
+                      setStatus(EnumRequestStatus.initial);
                     }}
                   >
                     Finish
@@ -89,5 +89,5 @@ export const Delegate = () => {
         </Typography>
       </>
     </Layout>
-  )
-}
+  );
+};

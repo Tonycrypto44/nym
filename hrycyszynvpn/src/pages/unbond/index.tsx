@@ -1,23 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Alert, Box, Button, CircularProgress } from '@mui/material'
-import { Fee, NymCard } from '../../components'
-import { Layout } from '../../layouts'
-import { useCheckOwnership } from '../../hooks/useCheckOwnership'
-import { ClientContext } from '../../context/main'
-import { unbond } from '../../requests'
-import { Unbond as UnbondIcon } from '../../svg-icons'
+import React, { useContext, useEffect, useState } from 'react';
+import { Alert, Box, Button, CircularProgress } from '@mui/material';
+import { Fee, NymCard } from '../../components';
+import { Layout } from '../../layouts';
+import { useCheckOwnership } from '../../hooks/useCheckOwnership';
+import { ClientContext } from '../../context/main';
+import { unbond } from '../../requests';
+import { Unbond as UnbondIcon } from '../../svg-icons';
 
 export const Unbond = () => {
-  const [isLoading, setIsLoading] = useState(false)
-  const { checkOwnership, ownership } = useCheckOwnership()
-  const { userBalance, getBondDetails } = useContext(ClientContext)
+  const [isLoading, setIsLoading] = useState(false);
+  const { checkOwnership, ownership } = useCheckOwnership();
+  const { userBalance, getBondDetails } = useContext(ClientContext);
 
   useEffect(() => {
     const initialiseForm = async () => {
-      await checkOwnership()
-    }
-    initialiseForm()
-  }, [ownership.hasOwnership, checkOwnership])
+      await checkOwnership();
+    };
+    initialiseForm();
+  }, [ownership.hasOwnership, checkOwnership]);
 
   return (
     <Layout>
@@ -32,12 +32,12 @@ export const Unbond = () => {
                   data-testid="un-bond"
                   disabled={isLoading}
                   onClick={async () => {
-                    setIsLoading(true)
-                    await unbond(ownership.nodeType)
-                    await userBalance.fetchBalance()
-                    await getBondDetails()
-                    await checkOwnership()
-                    setIsLoading(false)
+                    setIsLoading(true);
+                    await unbond(ownership.nodeType);
+                    await userBalance.fetchBalance();
+                    await getBondDetails();
+                    await checkOwnership();
+                    setIsLoading(false);
                   }}
                   color="inherit"
                 >
@@ -72,5 +72,5 @@ export const Unbond = () => {
         )}
       </NymCard>
     </Layout>
-  )
-}
+  );
+};

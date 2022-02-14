@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { Box } from '@mui/system'
-import { Stack } from '@mui/material'
-import { WelcomeContent, VerifyMnemonic, MnemonicWords, CreatePassword, ExistingAccount, SelectNetwork } from './pages'
-import { NymLogo } from '../../components'
-import { TMnemonicWords, TPages } from './types'
-import { RenderPage } from './components'
-import { CreateAccountContent } from './_legacy_create-account'
+import React, { useEffect, useState } from 'react';
+import { Box } from '@mui/system';
+import { Stack } from '@mui/material';
+import { WelcomeContent, VerifyMnemonic, MnemonicWords, CreatePassword, ExistingAccount, SelectNetwork } from './pages';
+import { NymLogo } from '../../components';
+import { TMnemonicWords, TPages } from './types';
+import { RenderPage } from './components';
+import { CreateAccountContent } from './_legacy_create-account';
 
 const testMnemonic =
-  'futuristic big receptive caption saw hug odd spoon internal dime bike rake helpless left distribution gusty eyes beg enormous word influence trashy pets curl'
+  'futuristic big receptive caption saw hug odd spoon internal dime bike rake helpless left distribution gusty eyes beg enormous word influence trashy pets curl';
 
 const mnemonicToArray = (mnemonic: string): TMnemonicWords =>
   mnemonic
     .split(' ')
-    .reduce((a, c: string, index) => [...a, { name: c, index: index + 1, disabled: false }], [] as TMnemonicWords)
+    .reduce((a, c: string, index) => [...a, { name: c, index: index + 1, disabled: false }], [] as TMnemonicWords);
 
 export const Welcome = () => {
-  const [page, setPage] = useState<TPages>('welcome')
-  const [mnemonicWords, setMnemonicWords] = useState<TMnemonicWords>()
+  const [page, setPage] = useState<TPages>('welcome');
+  const [mnemonicWords, setMnemonicWords] = useState<TMnemonicWords>();
 
   // useEffect(() => {
   //   const mnemonicArray = mnemonicToArray(testMnemonic)
@@ -71,5 +71,5 @@ export const Welcome = () => {
         </Stack>
       </Box>
     </Box>
-  )
-}
+  );
+};

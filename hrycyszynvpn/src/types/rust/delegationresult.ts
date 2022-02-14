@@ -1,4 +1,4 @@
-import { Coin } from "./coin";
+import { Coin } from './coin';
 
 export interface DelegationResult {
   source_address: string;

@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { FormControl, FormControlLabel, Radio, RadioGroup, Stack } from '@mui/material'
-import { Network } from '../../../types'
-import { ClientContext } from '../../../context/main'
+import React, { useContext } from 'react';
+import { FormControl, FormControlLabel, Radio, RadioGroup, Stack } from '@mui/material';
+import { Network } from '../../../types';
+import { ClientContext } from '../../../context/main';
 
 export const SelectNetwork: React.FC<{ page: 'select network' }> = () => {
-  const { network, switchNetwork } = useContext(ClientContext)
+  const { network, switchNetwork } = useContext(ClientContext);
 
   return (
     <Stack alignItems="center" spacing={5}>
@@ -21,5 +21,5 @@ export const SelectNetwork: React.FC<{ page: 'select network' }> = () => {
         </RadioGroup>
       </FormControl>
     </Stack>
-  )
-}
+  );
+};

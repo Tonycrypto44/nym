@@ -1,27 +1,27 @@
-import React, { useContext, useState } from 'react'
-import { Alert, Button, Stack, TextField } from '@mui/material'
-import { Subtitle } from '../components'
-import { ClientContext } from '../../../context/main'
-import { signInWithMnemonic } from '../../../requests'
+import React, { useContext, useState } from 'react';
+import { Alert, Button, Stack, TextField } from '@mui/material';
+import { Subtitle } from '../components';
+import { ClientContext } from '../../../context/main';
+import { signInWithMnemonic } from '../../../requests';
 
 export const ExistingAccount: React.FC<{ page: 'existing account'; onPrev: () => void }> = ({ onPrev }) => {
-  const [mnemonic, setMnemonic] = useState<string>()
-  const [inputError, setInputError] = useState<string>()
+  const [mnemonic, setMnemonic] = useState<string>();
+  const [inputError, setInputError] = useState<string>();
 
-  const { logIn } = useContext(ClientContext)
+  const { logIn } = useContext(ClientContext);
 
   const handleSignIn = async (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    setInputError(undefined)
+    setInputError(undefined);
 
     try {
-      await signInWithMnemonic(mnemonic || '')
-      logIn('MAINNET')
+      await signInWithMnemonic(mnemonic || '');
+      logIn('MAINNET');
     } catch (e: any) {
-      setInputError(e)
+      setInputError(e);
     }
-  }
+  };
 
   return (
     <Stack spacing={2} sx={{ width: 400 }} alignItems="center">
@@ -47,5 +47,5 @@ export const ExistingAccount: React.FC<{ page: 'existing account'; onPrev: () =>
         Back
       </Button>
     </Stack>
-  )
-}
+  );
+};
