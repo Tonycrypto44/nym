@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export interface TauriContractStateParams {
   minimum_mixnode_pledge: string;
   minimum_gateway_pledge: string;

@@ -1,3 +1,3 @@
 export const config = {
-  ADMIN_ADDRESS: process.env.ADMIN_ADDRESS,
-}
+  DOCS_BASE_URL: 'https://nymtech.net/docs',
+};
