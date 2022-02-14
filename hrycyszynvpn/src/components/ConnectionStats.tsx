@@ -1,5 +1,4 @@
 import React from 'react';
-import { ConnectionStatusKind } from '../types';
 
 export const ConnectionStats: React.FC<{
   stats: {
@@ -9,8 +8,8 @@ export const ConnectionStats: React.FC<{
   }[];
 }> = ({ stats }) => (
   <div>
-    {stats.map((stat, index) => (
-      <div key={`stat-${index}`}>
+    {stats.map((stat) => (
+      <div key={`stat-${stat.label}`}>
         <span>{stat.label}</span>
         <span>{formatRate(stat.rateBytesPerSecond)}</span>
         <span>{formatTotal(stat.totalBytes)}</span>

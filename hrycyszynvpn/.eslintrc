@@ -30,6 +30,7 @@
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
+    "react/require-default-props": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
     "import/no-extraneous-dependencies": [
@@ -81,7 +82,9 @@
               "**/*.test.ts",
               "**/*.spec.ts",
               "**/*.test.tsx",
-              "**/*.spec.tsx"
+              "**/*.spec.tsx",
+              "**/*.stories.*",
+              "**/.storybook/**/*.*"
             ]
           }
         ],

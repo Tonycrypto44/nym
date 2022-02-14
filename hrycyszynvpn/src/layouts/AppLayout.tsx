@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { Nav, AppBar } from '../components';
 import Logo from '../images/logo-background.svg';
 
 export const ApplicationLayout: React.FC = ({ children }) => (
@@ -29,7 +28,6 @@ export const ApplicationLayout: React.FC = ({ children }) => (
         <Box sx={{ mb: 3 }}>
           <Logo width={45} />
         </Box>
-        <Nav />
       </Box>
     </Box>
     <Box
@@ -40,7 +38,6 @@ export const ApplicationLayout: React.FC = ({ children }) => (
         flexDirection: 'column',
       }}
     >
-      <AppBar />
       {children}
     </Box>
   </Box>
