@@ -36,7 +36,7 @@ jobs:
         SOURCE: "hrycyszynvpn/storybook-static/"
         REMOTE_HOST: ${{ secrets.CI_WWW_REMOTE_HOST }}
         REMOTE_USER: ${{ secrets.CI_WWW_REMOTE_USER }}
-        TARGET: ${{ secrets.CI_WWW_REMOTE_TARGET }}/network-explorer-${{ env.GITHUB_REF_SLUG }}
+        TARGET: ${{ secrets.CI_WWW_REMOTE_TARGET }}/bcb-${{ env.GITHUB_REF_SLUG }}
         EXCLUDE: "/dist/, /node_modules/"
     - name: Keybase - Node Install
       run: npm install
