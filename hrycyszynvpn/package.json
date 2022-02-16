@@ -11,7 +11,7 @@
     "dev": "yarn run webpack:dev & yarn run tauri:dev",
     "build": "run-s webpack:prod tauri:build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook:build": "build-storybook",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "test": "jest",
