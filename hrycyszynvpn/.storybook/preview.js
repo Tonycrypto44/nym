@@ -1,13 +1,16 @@
 import { NymMixnetTheme } from '../src/theme';
 import { ClientContextProvider } from '../src/context/main';
+import { Fonts } from './preview-fonts';
 
 const withThemeProvider= (Story, context) =>{
   return (
-    <NymMixnetTheme>
-      <ClientContextProvider>
-        <Story {...context} />
-      </ClientContextProvider>
-    </NymMixnetTheme>
+    <Fonts>
+      <NymMixnetTheme>
+        <ClientContextProvider>
+          <Story {...context} />
+        </ClientContextProvider>
+      </NymMixnetTheme>
+    </Fonts>
   )
 }
 export const decorators = [withThemeProvider];
