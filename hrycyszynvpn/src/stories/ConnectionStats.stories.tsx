@@ -14,14 +14,14 @@ export const Default = Template.bind({});
 Default.args = {
   stats: [
     {
-      label: 'in',
+      label: 'in:',
       totalBytes: 1024,
       rateBytesPerSecond: 1024 * 1024 * 1024 + 10,
     },
     {
-      label: 'out',
+      label: 'out:',
       totalBytes: 1024 * 1024 * 1024 * 1024 * 20,
-      rateBytesPerSecond: 1024 * 1024 * 1024 + 10,
+      rateBytesPerSecond: 1024 * 1024 + 10,
     },
   ],
 };
