@@ -87,3 +87,17 @@ The output will compile different types of binaries dependent on your hardware /
 ```
 
 For instructions on how to release the wallet, please see [RELEASE.md](./docs/release/RELEASE.md).
+
+# Storybook
+
+Run storybook with:
+
+```
+yarn storybook
+```
+
+And build storybook static site with:
+
+```
+yarn storybook:build
+```
