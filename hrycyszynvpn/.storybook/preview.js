@@ -5,11 +5,11 @@ import { Fonts } from './preview-fonts';
 const withThemeProvider= (Story, context) =>{
   return (
     <Fonts>
-      <NymMixnetTheme>
-        <ClientContextProvider>
+      <ClientContextProvider>
+        <NymMixnetTheme>
           <Story {...context} />
-        </ClientContextProvider>
-      </NymMixnetTheme>
+        </NymMixnetTheme>
+      </ClientContextProvider>
     </Fonts>
   )
 }

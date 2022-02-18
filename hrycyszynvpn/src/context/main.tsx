@@ -14,7 +14,7 @@ export const ClientContext = createContext({} as TClientContext);
 
 export const ClientContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [connectionStatus, setConnectionStatus] = useState<ConnectionStatusKind>(ConnectionStatusKind.disconnected);
-  const [mode, setMode] = useState<ModeType>('light');
+  const [mode, setMode] = useState<ModeType>('dark');
 
   return (
     <ClientContext.Provider

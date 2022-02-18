@@ -84,6 +84,9 @@ const variantToMUIPalette = (variant: NymPaletteVariant): PaletteOptions => ({
     main: nymPalette.highlight,
     contrastText: '#fff',
   },
+  secondary: {
+    main: variant.mode === 'dark' ? nymPalette.background.light : nymPalette.background.dark,
+  },
   success: {
     main: nymPalette.success,
   },
@@ -161,6 +164,7 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
 
   // then customise theme and components
   return {
+    palette,
     typography: {
       fontFamily: [
         'Open Sans',
@@ -216,6 +220,5 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
         },
       },
     },
-    palette,
   };
 };

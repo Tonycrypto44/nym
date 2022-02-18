@@ -11,7 +11,11 @@ export default {
   component: DefaultLayout,
 } as ComponentMeta<typeof DefaultLayout>;
 
-export const Default: ComponentStory<typeof DefaultLayout> = () => <DefaultLayout />;
+export const Default: ComponentStory<typeof DefaultLayout> = () => (
+  <Box p={4} sx={{ background: 'white' }}>
+    <DefaultLayout />
+  </Box>
+);
 
 export const Content: ComponentStory<typeof AppFrame> = () => (
   <Box p={4} sx={{ background: 'white' }}>

@@ -2,12 +2,14 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import prettyBytes from 'pretty-bytes';
 
+export interface ConnectionStatsItem {
+  label: string;
+  rateBytesPerSecond: number;
+  totalBytes: number;
+}
+
 export const ConnectionStats: React.FC<{
-  stats: {
-    label: string;
-    rateBytesPerSecond: number;
-    totalBytes: number;
-  }[];
+  stats: ConnectionStatsItem[];
 }> = ({ stats }) => (
   <Box color="rgba(255,255,255,0.6)" width="100%" display="flex" justifyContent="space-between">
     <div>
