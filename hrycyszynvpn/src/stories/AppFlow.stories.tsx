@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Box } from '@mui/material';
+import { DateTime } from 'luxon';
 import { AppWindowFrame } from '../components/AppWindowFrame';
 import { useClientContext } from '../context/main';
 import { ConnectionStatusKind } from '../types';
@@ -14,7 +15,6 @@ export default {
 
 export const Mock: ComponentStory<typeof AppWindowFrame> = () => {
   const context = useClientContext();
-  console.log(context.connectionStatus);
   const [busy, setBusy] = React.useState<boolean>();
   const handleConnectClick = React.useCallback(() => {
     const oldStatus = context.connectionStatus;
@@ -24,11 +24,9 @@ export const Mock: ComponentStory<typeof AppWindowFrame> = () => {
       // eslint-disable-next-line default-case
       switch (oldStatus) {
         case ConnectionStatusKind.disconnected:
-          console.log('Connecting...');
           context.setConnectionStatus(ConnectionStatusKind.connecting);
           break;
         case ConnectionStatusKind.connected:
-          console.log('Disconnecting...');
           context.setConnectionStatus(ConnectionStatusKind.disconnecting);
           break;
       }
@@ -37,12 +35,10 @@ export const Mock: ComponentStory<typeof AppWindowFrame> = () => {
         // eslint-disable-next-line default-case
         switch (oldStatus) {
           case ConnectionStatusKind.disconnected:
-            console.log('Connected!');
-            context.setConnectionStatus(ConnectionStatusKind.connected);
             context.setConnectedSince(DateTime.now());
+            context.setConnectionStatus(ConnectionStatusKind.connected);
             break;
           case ConnectionStatusKind.connected:
-            console.log('Disconnected!');
             context.setConnectionStatus(ConnectionStatusKind.disconnected);
             break;
         }
@@ -70,6 +66,7 @@ export const Mock: ComponentStory<typeof AppWindowFrame> = () => {
         onConnectClick={handleConnectClick}
         ipAddress="127.0.0.1"
         port={1080}
+        connectedSince={context.connectedSince}
         stats={[
           {
             label: 'in:',
