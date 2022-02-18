@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { DateTime } from 'luxon';
 import { AppWindowFrame } from '../components/AppWindowFrame';
 import { ConnectionStatus } from '../components/ConnectionStatus';

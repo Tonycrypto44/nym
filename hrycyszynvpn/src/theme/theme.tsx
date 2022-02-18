@@ -1,11 +1,11 @@
 import { PaletteMode } from '@mui/material';
 import {
-  PaletteOptions,
-  NymPalette,
-  NymMixnetPalette,
-  ThemeOptions,
   createTheme,
+  NymMixnetPalette,
+  NymPalette,
   NymPaletteVariant,
+  PaletteOptions,
+  ThemeOptions,
 } from '@mui/material/styles';
 
 //-----------------------------------------------------------------------------------------------
