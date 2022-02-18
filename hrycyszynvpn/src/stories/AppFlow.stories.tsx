@@ -39,6 +39,7 @@ export const Mock: ComponentStory<typeof AppWindowFrame> = () => {
           case ConnectionStatusKind.disconnected:
             console.log('Connected!');
             context.setConnectionStatus(ConnectionStatusKind.connected);
+            context.setConnectedSince(DateTime.now());
             break;
           case ConnectionStatusKind.connected:
             console.log('Disconnected!');
