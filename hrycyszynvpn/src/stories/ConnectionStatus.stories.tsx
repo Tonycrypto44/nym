@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { DateTime } from 'luxon';
 import { ConnectionStatus } from '../components/ConnectionStatus';
 import { ConnectionStatusKind } from '../types';
 
@@ -17,7 +18,7 @@ export const Connecting: ComponentStory<typeof ConnectionStatus> = () => (
 );
 
 export const Connected: ComponentStory<typeof ConnectionStatus> = () => (
-  <ConnectionStatus status={ConnectionStatusKind.connected} />
+  <ConnectionStatus status={ConnectionStatusKind.connected} connectedSince={DateTime.now()} />
 );
 
 export const Disconnecting: ComponentStory<typeof ConnectionStatus> = () => (

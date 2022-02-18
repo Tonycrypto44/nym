@@ -13,7 +13,7 @@ export const Disconnected: ComponentStory<typeof ConnectionButton> = () => (
 );
 
 export const Connecting: ComponentStory<typeof ConnectionButton> = () => (
-  <ConnectionButton status={ConnectionStatusKind.connecting} />
+  <ConnectionButton status={ConnectionStatusKind.connecting} busy />
 );
 
 export const Connected: ComponentStory<typeof ConnectionButton> = () => (
@@ -21,5 +21,5 @@ export const Connected: ComponentStory<typeof ConnectionButton> = () => (
 );
 
 export const Disconnecting: ComponentStory<typeof ConnectionButton> = () => (
-  <ConnectionButton status={ConnectionStatusKind.disconnecting} />
+  <ConnectionButton status={ConnectionStatusKind.disconnecting} busy />
 );

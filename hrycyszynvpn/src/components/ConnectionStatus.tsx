@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, CircularProgress, Typography } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
+import { DateTime } from 'luxon';
 import { ConnectionStatusKind } from '../types';
 
 const FONT_SIZE = '16px';
@@ -55,13 +56,27 @@ const ConnectionStatusContent: React.FC<{
 
 export const ConnectionStatus: React.FC<{
   status: ConnectionStatusKind;
-}> = ({ status }) => {
+  connectedSince?: DateTime;
+}> = ({ status, connectedSince }) => {
   const color =
     status === ConnectionStatusKind.connected || status === ConnectionStatusKind.disconnecting ? '#21D072' : '#888';
-
+  const [duration, setDuration] = React.useState<string>();
+  React.useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (connectedSince) {
+        setDuration(DateTime.now().diff(connectedSince).toFormat('hh:mm:ss'));
+      }
+    }, 500);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [status, connectedSince]);
   return (
-    <Box color={color} fontSize={FONT_SIZE} display="flex" alignItems="center">
-      <ConnectionStatusContent status={status} />
+    <Box display="flex" justifyContent="space-between">
+      <Box color={color} fontSize={FONT_SIZE} display="flex" alignItems="center">
+        <ConnectionStatusContent status={status} />
+      </Box>
+      <Typography color={color}>{status === ConnectionStatusKind.connected && duration}</Typography>
     </Box>
   );
 };
