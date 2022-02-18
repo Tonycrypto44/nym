@@ -15,7 +15,10 @@ export const ConnectedLayout: React.FC<{
   ipAddress: string;
   port: number;
   connectedSince?: DateTime;
-}> = ({ status, stats, ipAddress, port, connectedSince }) => (
+  busy?: boolean;
+  isError?: boolean;
+  onConnectClick?: (status: ConnectionStatusKind) => void;
+}> = ({ status, stats, ipAddress, port, connectedSince, busy, isError, onConnectClick }) => (
   <AppWindowFrame>
     <Box pb={4}>
       <ConnectionStatus status={status} connectedSince={connectedSince} />
@@ -24,7 +27,7 @@ export const ConnectedLayout: React.FC<{
       <IpAddressAndPort label="SOCKS5 Proxy" ipAddress={ipAddress} port={port} />
     </Box>
     <ConnectionStats stats={stats} />
-    <ConnectionButton status={status} />
+    <ConnectionButton status={status} busy={busy} onClick={onConnectClick} isError={isError} />
     <NeedHelp />
   </AppWindowFrame>
 );

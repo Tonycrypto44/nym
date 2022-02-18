@@ -166,7 +166,7 @@ const getStatusText = (status: ConnectionStatusKind, hover: boolean): string => 
     case ConnectionStatusKind.connecting:
       return 'Connecting';
     case ConnectionStatusKind.disconnecting:
-      return 'Disconnecting';
+      return 'Connected';
     default:
       // connected
       if (hover) {
