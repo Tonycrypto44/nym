@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Box, Typography } from '@mui/material';
 import { DefaultLayout } from '../layouts/DefaultLayout';
-import { AppFrame } from '../components/AppFrame';
+import { AppWindowFrame } from '../components/AppWindowFrame';
 import { ConnectionButton } from '../components/ConnectionButton';
 import { ConnectionStatusKind } from '../types';
 
@@ -17,7 +17,7 @@ export const Default: ComponentStory<typeof DefaultLayout> = () => (
   </Box>
 );
 
-export const Content: ComponentStory<typeof AppFrame> = () => (
+export const Content: ComponentStory<typeof AppWindowFrame> = () => (
   <Box p={4} sx={{ background: 'white' }}>
     <DefaultLayout>
       <Typography fontWeight="700" fontSize="14px" textAlign="center">

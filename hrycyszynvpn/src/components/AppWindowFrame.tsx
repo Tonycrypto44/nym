@@ -1,16 +1,14 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-export const AppFrame: React.FC<{
-  footer?: React.ReactNode;
-}> = ({ children, footer }) => (
+export const AppWindowFrame: React.FC = ({ children }) => (
   <Box
     sx={{
       background: '#121726',
       borderRadius: '12px',
       padding: '12px 16px',
       display: 'grid',
-      gridTemplateRows: '20px auto 20px',
+      gridTemplateRows: '20px auto',
       width: '240px',
     }}
   >
@@ -28,9 +26,6 @@ export const AppFrame: React.FC<{
         />
       </svg>
     </Box>
-    <Box pt={1} pb="20px">
-      {children || 'This is the app frame'}
-    </Box>
-    {footer && <Box>{footer}</Box>}
+    <Box pt={1}>{children}</Box>
   </Box>
 );
