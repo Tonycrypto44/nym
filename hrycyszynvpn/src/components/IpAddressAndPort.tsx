@@ -19,17 +19,17 @@ export const IpAddressAndPort: React.FC<{
 }> = ({ label, ipAddress, port }) => (
   <IpAddressAndPortContainer>
     <Box display="flex" justifyContent="space-between" color="rgba(255,255,255,0.6)">
-      <Typography>{label}</Typography>
-      <Typography>Port</Typography>
+      <Typography fontSize="14px">{label}</Typography>
+      <Typography fontSize="14px">Port</Typography>
     </Box>
-    <Box display="flex" justifyContent="space-between" fontWeight="600">
+    <Box display="flex" justifyContent="space-between">
       <Tooltip title="Click to copy SOCKS5 proxy hostname">
-        <Typography fontWeight="inherit" className="hoverAddressCopy">
+        <Typography fontWeight="600" className="hoverAddressCopy">
           {ipAddress}
         </Typography>
       </Tooltip>
       <Tooltip title="Click to copy SOCKS5 proxy port">
-        <Typography fontWeight="inherit" className="hoverAddressCopy">
+        <Typography fontWeight="600" className="hoverAddressCopy">
           {port}
         </Typography>
       </Tooltip>

@@ -26,6 +26,6 @@ export const AppWindowFrame: React.FC = ({ children }) => (
         />
       </svg>
     </Box>
-    <Box pt={1}>{children}</Box>
+    {children}
   </Box>
 );

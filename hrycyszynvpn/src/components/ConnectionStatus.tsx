@@ -76,7 +76,9 @@ export const ConnectionStatus: React.FC<{
       <Box color={color} fontSize={FONT_SIZE} display="flex" alignItems="center">
         <ConnectionStatusContent status={status} />
       </Box>
-      <Typography color={color}>{status === ConnectionStatusKind.connected && duration}</Typography>
+      <Typography color={color} fontWeight={FONT_WEIGHT} fontStyle={FONT_STYLE}>
+        {status === ConnectionStatusKind.connected && duration}
+      </Typography>
     </Box>
   );
 };
